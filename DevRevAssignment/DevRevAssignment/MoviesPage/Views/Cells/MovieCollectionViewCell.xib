@@ -64,6 +64,7 @@
             </constraints>
             <size key="customSize" width="158" height="232"/>
             <connections>
+                <outlet property="movieDateLabel" destination="Vag-K0-Ly7" id="vo6-Tp-u00"/>
                 <outlet property="movieImageView" destination="tlq-Pq-VFw" id="XDf-0u-Yp4"/>
                 <outlet property="movieTitleLabel" destination="grA-iX-wU4" id="H0z-Nn-h6p"/>
             </connections>

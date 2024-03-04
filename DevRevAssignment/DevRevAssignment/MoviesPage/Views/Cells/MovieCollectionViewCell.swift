@@ -10,6 +10,7 @@ import UIKit
 class MovieCollectionViewCell: UICollectionViewCell {
     @IBOutlet weak var movieImageView: UIImageView!
     @IBOutlet weak var movieTitleLabel: UILabel!
+    @IBOutlet weak var movieDateLabel: UILabel!
     
     
     override func awakeFromNib() {
@@ -20,9 +21,15 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with movie: Movie) {
-       // movieImageView.loadImage(fromURL: movie.posterPath)
-        movieImageView.image = UIImage(named: "Movie1")
+        let posterPath = movie.posterPath
+        let imageSize = "w500"
+        let baseURL = "https://image.tmdb.org/t/p/"
+
+        let fullPosterURL = baseURL + imageSize + posterPath
+        
+        movieImageView.loadImage(fromURL: fullPosterURL)
         movieTitleLabel.text = movie.title
+        movieDateLabel.text = movie.releaseDate
     }
 }
 

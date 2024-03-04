@@ -10,21 +10,33 @@ import Foundation
 struct Movie: Decodable {
     let id: Int
     let title: String
+    let originalTitle: String
     let overview: String
     let releaseDate: String
+    let genreIDs: [Int]
+    let originalLanguage: String
+    let backdropPath: String
     let posterPath: String
+    let popularity: Double
     let voteAverage: Double
-    
+    let voteCount: Int
+    let adult: Bool
+    let video: Bool
+
     enum CodingKeys: String, CodingKey {
-        case id
-        case title
-        case overview
+        case id, title, overview, adult, video, popularity
+        case originalTitle = "original_title"
         case releaseDate = "release_date"
+        case genreIDs = "genre_ids"
+        case originalLanguage = "original_language"
+        case backdropPath = "backdrop_path"
         case posterPath = "poster_path"
         case voteAverage = "vote_average"
+        case voteCount = "vote_count"
     }
-    
-    var fullPosterPath: String {
-        return "https://image.tmdb.org/t/p/w500\(posterPath)"
-    }
+}
+
+struct MovieResponse: Decodable {
+    let page: Int
+    let results: [Movie]
 }

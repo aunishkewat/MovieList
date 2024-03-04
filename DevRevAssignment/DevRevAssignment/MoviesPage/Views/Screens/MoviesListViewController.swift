@@ -6,6 +6,7 @@
 //
 
 import UIKit
+//import CustomNetwork
 
 class MoviesListViewController: UIViewController {
     
@@ -13,14 +14,15 @@ class MoviesListViewController: UIViewController {
     @IBOutlet weak var collectionView: UICollectionView!
     
     var movies: [Movie] = []
+    let viewModel = MovieListViewModel()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
        
         self.setupColletionRegister()
         self.fetchMovies(forSegment: segmentedControl.selectedSegmentIndex)
         self.setupUISegment()
-        self.demoMovie()
     }
     
     func setupColletionRegister() {
@@ -30,23 +32,7 @@ class MoviesListViewController: UIViewController {
         // Register the cell with the collection view
         collectionView.register(MovieCollectionViewCell.nib, forCellWithReuseIdentifier: MovieCollectionViewCell.identifier)
     }
-    
-    func demoMovie() {
-        movies = [
-            Movie(id: 1, title: "The Shawshank Redemption", overview: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", releaseDate: "1994-09-23", posterPath: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", voteAverage: 8.7),
-            Movie(id: 2, title: "The Godfather", overview: "The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.", releaseDate: "1972-03-14", posterPath: "/3bhkrj58Vtu7enYsRolD1fZdja1.jpg", voteAverage: 8.6),
-            Movie(id: 3, title: "The Dark Knight", overview: "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.", releaseDate: "2008-07-16", posterPath: "/qJ2tW6WMUDux911r6m7haRef0WH.jpg", voteAverage: 8.4),
-            Movie(id: 4, title: "12 Angry Men", overview: "A jury holdout attempts to prevent a miscarriage of justice by forcing his colleagues to reconsider the evidence.", releaseDate: "1957-04-10", posterPath: "/ppd84D2i9W8jXmsyInGyihiSyqz.jpg", voteAverage: 8.9),
-            Movie(id: 5, title: "Schindler's List", overview: "In German-occupied Poland during World War II, industrialist Oskar Schindler gradually becomes concerned for his Jewish workforce after witnessing their persecution by the Nazis.", releaseDate: "1993-12-15", posterPath: "/sF1U4EUQS8YHUYjNl3pMGNIQyr0.jpg", voteAverage: 8.9),
-            Movie(id: 1, title: "The Shawshank Redemption", overview: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", releaseDate: "1994-09-23", posterPath: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", voteAverage: 8.7),
-            Movie(id: 1, title: "The Shawshank Redemption", overview: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", releaseDate: "1994-09-23", posterPath: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", voteAverage: 8.7),
-            Movie(id: 1, title: "The Shawshank Redemption", overview: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", releaseDate: "1994-09-23", posterPath: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", voteAverage: 8.7),
-            Movie(id: 1, title: "The Shawshank Redemption", overview: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", releaseDate: "1994-09-23", posterPath: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", voteAverage: 8.7),
-            Movie(id: 1, title: "The Shawshank Redemption", overview: "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency.", releaseDate: "1994-09-23", posterPath: "/q6y0Go1tsGEsmtFryDOJo3dEmqu.jpg", voteAverage: 8.7)
-        ]
-
-    }
-    
+        
     func setupUISegment() {
         // Customization
            segmentedControl.backgroundColor = .clear
@@ -65,8 +51,39 @@ class MoviesListViewController: UIViewController {
     
     private func fetchMovies(forSegment segment: Int) {
         // Depending on the segment, fetching the latest or popular movies
-        //movies = []
-        collectionView.reloadData()
+        movies = []
+        
+        if segment == 0 {
+            viewModel.fetchPopularMovies(endPoint: Constants.Endpoints.nowPlaying) { success, error in
+                if success {
+                    // Refresh UI with viewModel.movies
+                    self.movies = self.viewModel.movies
+                    print(self.movies.count)
+                    DispatchQueue.main.async {
+                        // Update your UI here
+                        self.collectionView.reloadData()
+                    }
+                } else {
+                    // Handle error
+                    print(error?.localizedDescription ?? "Unknown error")
+                }
+            }
+        } else {
+            viewModel.fetchPopularMovies(endPoint: Constants.Endpoints.popular) { success, error in
+                if success {
+                    // Refresh UI with viewModel.movies
+                    self.movies = self.viewModel.movies
+                    print(self.movies.count)
+                    DispatchQueue.main.async {
+                        // Update your UI here
+                        self.collectionView.reloadData()
+                    }
+                } else {
+                    // Handle error
+                    print(error?.localizedDescription ?? "Unknown error")
+                }
+            }
+        }
     }
 }
 
@@ -89,6 +106,9 @@ extension MoviesListViewController: UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // Handle cell selection
+        let movieDetails = MovieDetailViewController()
+        movieDetails.movieId = movies[indexPath.row].id
+        navigateToNextViewController(controller: movieDetails)
     }
 }
 
