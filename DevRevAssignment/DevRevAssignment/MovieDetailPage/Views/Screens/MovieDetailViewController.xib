@@ -21,6 +21,8 @@
                 <outlet property="movieTitleNameLabel" destination="uV8-Zp-XB3" id="was-0Y-VKK"/>
                 <outlet property="overViewDetailLabel" destination="8cC-Ro-pt2" id="jd4-1i-R9d"/>
                 <outlet property="overViewLabel" destination="9m9-eA-HDC" id="Aya-6E-eLT"/>
+                <outlet property="scoreView" destination="nA4-1e-iQ5" id="Jwf-8S-ihp"/>
+                <outlet property="userScoreLabel" destination="d21-G1-Ju2" id="NFf-Hq-nst"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -50,7 +52,7 @@
                     <rect key="frame" x="0.0" y="75" width="320" height="493"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BOW-BN-6Zv" userLabel="ContentView">
-                            <rect key="frame" x="0.0" y="0.0" width="320" height="1100"/>
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hse-bK-K9C">
                                     <rect key="frame" x="0.0" y="0.0" width="320" height="230"/>
@@ -81,23 +83,44 @@
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d21-G1-Ju2">
+                                            <rect key="frame" x="199" y="78" width="101" height="41"/>
+                                            <string key="text">User
+Score</string>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nA4-1e-iQ5" customClass="UserScoreView" customModule="DevRevAssignment" customModuleProvider="target">
+                                            <rect key="frame" x="144" y="76" width="45" height="45"/>
+                                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="45" id="Jqz-d9-SQd"/>
+                                                <constraint firstAttribute="height" constant="45" id="UcF-rG-lVy"/>
+                                            </constraints>
+                                        </view>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                     <constraints>
                                         <constraint firstAttribute="trailing" secondItem="uV8-Zp-XB3" secondAttribute="trailing" constant="10" id="47S-uE-95b"/>
                                         <constraint firstAttribute="height" constant="230" id="4J1-Ly-5gH"/>
+                                        <constraint firstItem="d21-G1-Ju2" firstAttribute="centerY" secondItem="nA4-1e-iQ5" secondAttribute="centerY" id="981-ln-Vbt"/>
                                         <constraint firstItem="qYC-Rs-SFz" firstAttribute="leading" secondItem="Hse-bK-K9C" secondAttribute="leading" id="A0O-Vr-jbk"/>
                                         <constraint firstItem="TFI-N3-obx" firstAttribute="leading" secondItem="Hse-bK-K9C" secondAttribute="leading" id="B4p-kx-d1s"/>
                                         <constraint firstAttribute="bottom" secondItem="qYC-Rs-SFz" secondAttribute="bottom" id="Cew-z6-lrk"/>
                                         <constraint firstItem="TFI-N3-obx" firstAttribute="top" secondItem="Hse-bK-K9C" secondAttribute="top" id="IyR-Dx-WgL"/>
                                         <constraint firstItem="5sr-Ad-epR" firstAttribute="top" secondItem="Hse-bK-K9C" secondAttribute="top" constant="10" id="LmO-Z4-5pa"/>
+                                        <constraint firstItem="nA4-1e-iQ5" firstAttribute="leading" secondItem="3Lv-HG-S0h" secondAttribute="leading" id="RI5-Iq-hFS"/>
                                         <constraint firstItem="3Lv-HG-S0h" firstAttribute="leading" secondItem="uV8-Zp-XB3" secondAttribute="leading" id="aOR-Gq-Ano"/>
                                         <constraint firstItem="qYC-Rs-SFz" firstAttribute="top" secondItem="Hse-bK-K9C" secondAttribute="top" id="cFo-6C-rVQ"/>
+                                        <constraint firstItem="d21-G1-Ju2" firstAttribute="leading" secondItem="nA4-1e-iQ5" secondAttribute="trailing" constant="10" id="hUe-RN-XSv"/>
                                         <constraint firstAttribute="bottom" secondItem="TFI-N3-obx" secondAttribute="bottom" id="i0e-zW-iWd"/>
                                         <constraint firstItem="uV8-Zp-XB3" firstAttribute="leading" secondItem="5sr-Ad-epR" secondAttribute="trailing" constant="9" id="lVY-UD-Mx8"/>
                                         <constraint firstAttribute="trailing" secondItem="TFI-N3-obx" secondAttribute="trailing" id="lXO-vO-OYh"/>
                                         <constraint firstItem="3Lv-HG-S0h" firstAttribute="top" secondItem="uV8-Zp-XB3" secondAttribute="bottom" constant="5" id="lzh-6g-KJP"/>
+                                        <constraint firstAttribute="trailing" secondItem="d21-G1-Ju2" secondAttribute="trailing" constant="20" id="nBY-yo-SfY"/>
                                         <constraint firstAttribute="trailing" secondItem="qYC-Rs-SFz" secondAttribute="trailing" id="oho-AP-dC9"/>
+                                        <constraint firstItem="nA4-1e-iQ5" firstAttribute="top" secondItem="3Lv-HG-S0h" secondAttribute="bottom" constant="10" id="p5H-VY-IX7"/>
                                         <constraint firstItem="5sr-Ad-epR" firstAttribute="leading" secondItem="Hse-bK-K9C" secondAttribute="leading" constant="15" id="pBi-zc-HDU"/>
                                         <constraint firstItem="3Lv-HG-S0h" firstAttribute="trailing" secondItem="uV8-Zp-XB3" secondAttribute="trailing" id="yBC-fn-zj1"/>
                                         <constraint firstItem="uV8-Zp-XB3" firstAttribute="top" secondItem="5sr-Ad-epR" secondAttribute="top" constant="10" id="yH1-u6-jt8"/>
@@ -146,7 +169,7 @@
                                 <constraint firstItem="Hse-bK-K9C" firstAttribute="top" secondItem="BOW-BN-6Zv" secondAttribute="top" id="LIS-Ua-7Gb"/>
                                 <constraint firstItem="Hse-bK-K9C" firstAttribute="leading" secondItem="BOW-BN-6Zv" secondAttribute="leading" id="N5V-Vv-JqH"/>
                                 <constraint firstItem="4nL-g8-hPH" firstAttribute="trailing" secondItem="8cC-Ro-pt2" secondAttribute="trailing" id="RDe-M9-Yw5"/>
-                                <constraint firstAttribute="height" constant="1100" id="RlY-EB-5N1"/>
+                                <constraint firstAttribute="height" constant="900" id="RlY-EB-5N1"/>
                                 <constraint firstItem="4nL-g8-hPH" firstAttribute="top" secondItem="8cC-Ro-pt2" secondAttribute="bottom" constant="15" id="TVh-gr-hJG"/>
                                 <constraint firstItem="09o-MO-Ldm" firstAttribute="top" secondItem="4nL-g8-hPH" secondAttribute="bottom" constant="10" id="VWP-Ty-2om"/>
                                 <constraint firstItem="09o-MO-Ldm" firstAttribute="trailing" secondItem="8cC-Ro-pt2" secondAttribute="trailing" id="a4I-Ht-6YQ"/>

@@ -32,6 +32,7 @@
 		81B17BC22B94826C002DCD7C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B17BC12B94826C002DCD7C /* Constants.swift */; };
 		81B17BC92B9500C3002DCD7C /* MovieDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81B17BC72B9500C3002DCD7C /* MovieDetailViewController.swift */; };
 		81B17BCA2B9500C3002DCD7C /* MovieDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81B17BC82B9500C3002DCD7C /* MovieDetailViewController.xib */; };
+		81E0750E2B971938001A14AE /* UserScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81E0750D2B971938001A14AE /* UserScoreView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,6 +95,7 @@
 		81B17BC12B94826C002DCD7C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		81B17BC72B9500C3002DCD7C /* MovieDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieDetailViewController.swift; sourceTree = "<group>"; };
 		81B17BC82B9500C3002DCD7C /* MovieDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MovieDetailViewController.xib; sourceTree = "<group>"; };
+		81E0750D2B971938001A14AE /* UserScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserScoreView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +176,7 @@
 			children = (
 				81A0E8A22B92F91500E5D6FF /* AppDelegate.swift */,
 				81010A4A2B9658C100F6BB22 /* CustomNetwork.framework */,
+				81E0750C2B971906001A14AE /* CommonView */,
 				81B17BBE2B94824C002DCD7C /* Utilities */,
 				81B17BC32B94FAEC002DCD7C /* MovieDetailPage */,
 				81B17BAA2B947E08002DCD7C /* MoviesPage */,
@@ -290,6 +293,14 @@
 				81010A2E2B95C98B00F6BB22 /* Screens */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		81E0750C2B971906001A14AE /* CommonView */ = {
+			isa = PBXGroup;
+			children = (
+				81E0750D2B971938001A14AE /* UserScoreView.swift */,
+			);
+			path = CommonView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -432,6 +443,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81E0750E2B971938001A14AE /* UserScoreView.swift in Sources */,
 				81A0E8A72B92F91500E5D6FF /* ViewController.swift in Sources */,
 				81010A422B963A0B00F6BB22 /* CastCollectionViewCell.swift in Sources */,
 				81B17BC02B948261002DCD7C /* Extensions.swift in Sources */,

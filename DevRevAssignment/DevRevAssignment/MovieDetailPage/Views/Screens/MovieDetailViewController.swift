@@ -23,6 +23,8 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var overViewDetailLabel: UILabel!
     @IBOutlet weak var castsCollectionView: UICollectionView!
     @IBOutlet weak var movieCastLabel: UILabel!
+    @IBOutlet weak var scoreView: UserScoreView!
+    @IBOutlet weak var userScoreLabel: UILabel!
     
     var viewModel = MovieDetailViewModel()
     var movieId: Int = 0
@@ -58,6 +60,11 @@ class MovieDetailViewController: UIViewController {
         self.movieCastLabel.text = "Top Billed Cast"
         self.movieCastLabel.font = .systemFont(ofSize: 20, weight: .bold)
         
+        self.scoreView.score = 100
+        self.scoreView.layer.cornerRadius = scoreView.frame.width / 2
+        self.scoreView.backgroundColor = .black
+        self.userScoreLabel.text = "User Score"
+        self.userScoreLabel.textColor = .white
         //colletion view registration
         castsCollectionView.delegate = self
         castsCollectionView.dataSource = self
@@ -77,6 +84,9 @@ class MovieDetailViewController: UIViewController {
                     self.movieSubTitleDetailsLabel.text = (self.viewModel.movieDetail?.releaseDate ?? "") + " \u{2022} " + (self.viewModel.movieDetail?.genres.first?.name ?? "") + " \u{2022} " + (self.viewModel.movieDetail?.originalLanguage ?? "")
                     self.overViewDetailLabel.text = self.viewModel.movieDetail?.overview
                     
+                    let userScore = Int((self.viewModel.movieDetail?.voteAverage ?? 0) * 10)
+                    self.scoreView.score = userScore
+                    self.scoreView.animateToScore(userScore)
                     let backdropPath = self.viewModel.movieDetail?.backdropPath ?? ""
                     let posterPath = self.viewModel.movieDetail?.posterPath ?? ""
                     let imageSize = "w500"
