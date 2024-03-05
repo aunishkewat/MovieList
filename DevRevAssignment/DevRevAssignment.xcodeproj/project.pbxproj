@@ -12,8 +12,7 @@
 		81010A422B963A0B00F6BB22 /* CastCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81010A402B963A0B00F6BB22 /* CastCollectionViewCell.swift */; };
 		81010A432B963A0B00F6BB22 /* CastCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 81010A412B963A0B00F6BB22 /* CastCollectionViewCell.xib */; };
 		81010A452B96465D00F6BB22 /* CastMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81010A442B96465D00F6BB22 /* CastMember.swift */; };
-		81010A4C2B96593400F6BB22 /* CustomNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81010A4A2B9658C100F6BB22 /* CustomNetwork.framework */; };
-		81010A4D2B96593400F6BB22 /* CustomNetwork.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 81010A4A2B9658C100F6BB22 /* CustomNetwork.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		814C1FB22B972F2200F71E88 /* CustomNetworkPackage in Frameworks */ = {isa = PBXBuildFile; productRef = 814C1FB12B972F2200F71E88 /* CustomNetworkPackage */; };
 		81A0E8A32B92F91500E5D6FF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0E8A22B92F91500E5D6FF /* AppDelegate.swift */; };
 		81A0E8A72B92F91500E5D6FF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 81A0E8A62B92F91500E5D6FF /* ViewController.swift */; };
 		81A0E8AA2B92F91500E5D6FF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81A0E8A82B92F91500E5D6FF /* Main.storyboard */; };
@@ -59,7 +58,6 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				81010A4D2B96593400F6BB22 /* CustomNetwork.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -72,7 +70,6 @@
 		81010A402B963A0B00F6BB22 /* CastCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastCollectionViewCell.swift; sourceTree = "<group>"; };
 		81010A412B963A0B00F6BB22 /* CastCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CastCollectionViewCell.xib; sourceTree = "<group>"; };
 		81010A442B96465D00F6BB22 /* CastMember.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CastMember.swift; sourceTree = "<group>"; };
-		81010A4A2B9658C100F6BB22 /* CustomNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = CustomNetwork.framework; sourceTree = "<group>"; };
 		81A0E89F2B92F91500E5D6FF /* DevRevAssignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DevRevAssignment.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		81A0E8A22B92F91500E5D6FF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		81A0E8A62B92F91500E5D6FF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -103,7 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				81010A4C2B96593400F6BB22 /* CustomNetwork.framework in Frameworks */,
+				814C1FB22B972F2200F71E88 /* CustomNetworkPackage in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,7 +172,6 @@
 			isa = PBXGroup;
 			children = (
 				81A0E8A22B92F91500E5D6FF /* AppDelegate.swift */,
-				81010A4A2B9658C100F6BB22 /* CustomNetwork.framework */,
 				81E0750C2B971906001A14AE /* CommonView */,
 				81B17BBE2B94824C002DCD7C /* Utilities */,
 				81B17BC32B94FAEC002DCD7C /* MovieDetailPage */,
@@ -321,6 +317,7 @@
 			);
 			name = DevRevAssignment;
 			packageProductDependencies = (
+				814C1FB12B972F2200F71E88 /* CustomNetworkPackage */,
 			);
 			productName = DevRevAssignment;
 			productReference = 81A0E89F2B92F91500E5D6FF /* DevRevAssignment.app */;
@@ -395,6 +392,7 @@
 			);
 			mainGroup = 81A0E8962B92F91500E5D6FF;
 			packageReferences = (
+				814C1FB02B972F2200F71E88 /* XCRemoteSwiftPackageReference "CustomNetworkPackage" */,
 			);
 			productRefGroup = 81A0E8A02B92F91500E5D6FF /* Products */;
 			projectDirPath = "";
@@ -809,6 +807,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		814C1FB02B972F2200F71E88 /* XCRemoteSwiftPackageReference "CustomNetworkPackage" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/aunishkewat/CustomNetworkPackage";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		814C1FB12B972F2200F71E88 /* CustomNetworkPackage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 814C1FB02B972F2200F71E88 /* XCRemoteSwiftPackageReference "CustomNetworkPackage" */;
+			productName = CustomNetworkPackage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 81A0E8972B92F91500E5D6FF /* Project object */;
 }
