@@ -13,13 +13,11 @@ extension UIImageView {
         if let imageURL = URL(string: urlString) {
             URLSession.shared.dataTask(with: imageURL) { data, response, error in
                 if let error = error {
-                    // Handle the error
                     print("Error downloading image: \(error.localizedDescription)")
                     return
                 }
                 if let data = data, let image = UIImage(data: data) {
                     DispatchQueue.main.async {
-                        // Display the image in your UI
                         self.image = image
                     }
                 }
