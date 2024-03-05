@@ -41,7 +41,7 @@ class CastCollectionViewCell: UICollectionViewCell {
             let fullImageUrlString = "https://image.tmdb.org/t/p/w500\(profilePath)"
             self.actorImageView.loadImage(fromURL: fullImageUrlString)
         } else {
-            actorImageView.image = UIImage(named: "Movie1")
+            actorImageView.image = UIImage(systemName: "person.circle.fill")
         }
     }
 }

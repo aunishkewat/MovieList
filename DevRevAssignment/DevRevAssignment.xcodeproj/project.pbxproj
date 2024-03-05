@@ -309,6 +309,8 @@
 			dependencies = (
 			);
 			name = DevRevAssignment;
+			packageProductDependencies = (
+			);
 			productName = DevRevAssignment;
 			productReference = 81A0E89F2B92F91500E5D6FF /* DevRevAssignment.app */;
 			productType = "com.apple.product-type.application";
@@ -381,6 +383,8 @@
 				Base,
 			);
 			mainGroup = 81A0E8962B92F91500E5D6FF;
+			packageReferences = (
+			);
 			productRefGroup = 81A0E8A02B92F91500E5D6FF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";

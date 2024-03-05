@@ -22,7 +22,6 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var overViewLabel: UILabel!
     @IBOutlet weak var overViewDetailLabel: UILabel!
     @IBOutlet weak var castsCollectionView: UICollectionView!
-    
     @IBOutlet weak var movieCastLabel: UILabel!
     
     var viewModel = MovieDetailViewModel()
@@ -75,7 +74,7 @@ class MovieDetailViewController: UIViewController {
                     self.movieTitleLabel.text = self.viewModel.movieDetail?.originalTitle
                     
                     self.movieTitleNameLabel.text = self.viewModel.movieDetail?.originalTitle
-                    self.movieSubTitleDetailsLabel.text = (self.viewModel.movieDetail?.releaseDate ?? "") + " \u{2022} "
+                    self.movieSubTitleDetailsLabel.text = (self.viewModel.movieDetail?.releaseDate ?? "") + " \u{2022} " + (self.viewModel.movieDetail?.genres.first?.name ?? "") + " \u{2022} " + (self.viewModel.movieDetail?.originalLanguage ?? "")
                     self.overViewDetailLabel.text = self.viewModel.movieDetail?.overview
                     
                     let backdropPath = self.viewModel.movieDetail?.backdropPath ?? ""
