@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CustomNetworkPackage
+import CustomNetwork
 
 class MovieDetailViewModel {
     
@@ -17,7 +17,7 @@ class MovieDetailViewModel {
     var movieCast: [CastMember] = []
     
     func fetchMovieDetails(movieId: Int, completion: @escaping (Bool, Error?) -> Void) {
-        CustomNetworkPackage.shared.getRequest(url: baseURL + "\(movieId)", bearerToken: apiKey)  { [weak self] data, response, error in
+        NetworkManager.shared.getRequest(url: baseURL + "\(movieId)", bearerToken: apiKey)  { [weak self] data, response, error in
             guard let data = data, error == nil else {
                 completion(false, error)
                 return
@@ -37,7 +37,7 @@ class MovieDetailViewModel {
 extension MovieDetailViewModel {
     
     func fetchMovieCast(movieId: Int, completion: @escaping (Bool, Error?) -> Void) {
-        CustomNetworkPackage.shared.getRequest(url: baseURL + "\(movieId)\(Constants.Endpoints.credits)", bearerToken: apiKey)  { [weak self] data, response, error in
+        NetworkManager.shared.getRequest(url: baseURL + "\(movieId)\(Constants.Endpoints.credits)", bearerToken: apiKey)  { [weak self] data, response, error in
             guard let data = data, error == nil else {
                 completion(false, error)
                 return

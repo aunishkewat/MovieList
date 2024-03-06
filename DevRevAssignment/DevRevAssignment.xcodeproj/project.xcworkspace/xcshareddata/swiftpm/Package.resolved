@@ -1,12 +1,12 @@
 {
   "pins" : [
     {
-      "identity" : "customnetworkpackage",
+      "identity" : "customnetwork",
       "kind" : "remoteSourceControl",
-      "location" : "https://github.com/aunishkewat/CustomNetworkPackage",
+      "location" : "https://github.com/aunishkewat/CustomNetwork.git",
       "state" : {
         "branch" : "main",
-        "revision" : "8509f757ab1431ab2729fbdedcb98a10b4b7873a"
+        "revision" : "73a456f528fc6c6cd353b318277e77c36a7c5523"
       }
     }
   ],
