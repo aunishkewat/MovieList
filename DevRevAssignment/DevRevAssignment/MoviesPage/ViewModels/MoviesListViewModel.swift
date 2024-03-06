@@ -6,7 +6,7 @@
 //
 
 import Foundation
-import CustomNetworkPackage
+import CustomNetwork
 
 class MovieListViewModel {
     private let apiKey = Constants.apiKey
@@ -15,7 +15,7 @@ class MovieListViewModel {
     var movies: [Movie] = []
     
     func fetchPopularMovies(endPoint: String,completion: @escaping (Bool, Error?) -> Void) {
-        CustomNetworkPackage.shared.getRequest(url: baseURL + endPoint, bearerToken: apiKey)  { [weak self] data, response, error in
+        NetworkManager.shared.getRequest(url: baseURL + endPoint, bearerToken: apiKey)  { [weak self] data, response, error in
             guard let data = data, error == nil else {
                 completion(false, error)
                 return
