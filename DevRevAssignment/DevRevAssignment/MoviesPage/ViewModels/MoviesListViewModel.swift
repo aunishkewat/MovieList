@@ -25,7 +25,7 @@ class MovieListViewModel {
                 let decoder = JSONDecoder()
                 //decoder.keyDecodingStrategy = .convertFromSnakeCase
                 let movieResponse = try decoder.decode(MovieResponse.self, from: data)
-                self?.movies = movieResponse.results
+                self?.movies = movieResponse.results 
                 completion(true, nil)
             } catch {
                 completion(false, error)

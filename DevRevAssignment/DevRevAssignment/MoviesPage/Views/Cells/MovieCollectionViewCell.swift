@@ -21,7 +21,7 @@ class MovieCollectionViewCell: UICollectionViewCell {
     }
     
     func configure(with movie: Movie) {
-        let posterPath = movie.posterPath
+        guard let posterPath = movie.posterPath else { return }
         let imageSize = "w500"
         let baseURL = "https://image.tmdb.org/t/p/"
 
